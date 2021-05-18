@@ -1,0 +1,87 @@
+<Window x:Class="HearthbuddyHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HearthbuddyHelper"
+        mc:Ignorable="d"
+        Title="HearthbuddyHelper" Height="500" Width="400" Loaded="Window_Loaded" ResizeMode="CanMinimize" Closed="Window_Closed">
+    <Grid>
+        <GroupBox Header="路径配置" Height="75" VerticalAlignment="Top" Margin="0,0,-0.4,0" >
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="战网路径："/>
+                    <TextBox x:Name="BattleNetPathTextBox" Width="270" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                    <Button x:Name="SelectBattleNetFileButton" Content="浏览" Click="SelectBattleNetFileButton_Click" Margin="4,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="兄弟路径："/>
+                    <TextBox x:Name="HearthbuddyPathTextBox" Width="270" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                    <Button x:Name="SelectHearthbuddyFileButton" Content="浏览" Click="SelectHearthbuddyFileButton_Click" Margin="4,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="时间配置" HorizontalAlignment="Left" Height="134" VerticalAlignment="Top" Width="394" Margin="0,80,-0.4,0">
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="战网——炉石启动间隔：" />
+                        <TextBox x:Name="BNHSIntervalTextBox" Width="30" Height="20" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput" InputMethod.IsInputMethodEnabled="False" ContextMenu="{x:Null}" MaxLength="3" MaxLines="1">
+                            <TextBox.CommandBindings>
+                                <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                            </TextBox.CommandBindings>
+                        </TextBox>
+                        <Label Content="秒"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label Content="炉石——兄弟启动间隔：" />
+                        <TextBox x:Name="HSHBIntervalTextBox" Width="30" Height="20" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput" InputMethod.IsInputMethodEnabled="False" ContextMenu="{x:Null}" MaxLength="3" MaxLines="1">
+                            <TextBox.CommandBindings>
+                                <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                            </TextBox.CommandBindings>
+                        </TextBox>
+                        <Label Content="秒"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label Content="检测时间频率：" />
+                        <TextBox x:Name="CheckIntervalTextBox" Width="30" Height="20" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput" InputMethod.IsInputMethodEnabled="False" ContextMenu="{x:Null}" MaxLines="1" MaxLength="3">
+                            <TextBox.CommandBindings>
+                                <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                            </TextBox.CommandBindings>
+                        </TextBox>
+                        <Label Content="分钟一次"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label Content="挂机时间：每日从" />
+                        <TextBox x:Name="StartTimeTextBox" Width="20" Height="20" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput" InputMethod.IsInputMethodEnabled="False" ContextMenu="{x:Null}" MaxLines="1" MaxLength="3">
+                            <TextBox.CommandBindings>
+                                <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                            </TextBox.CommandBindings>
+                        </TextBox>
+                        <Label Content="时至"/>
+                        <TextBox x:Name="EndTimeTextBox" Width="20" Height="20" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput" InputMethod.IsInputMethodEnabled="False" ContextMenu="{x:Null}" MaxLines="1" MaxLength="3">
+                            <TextBox.CommandBindings>
+                                <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                                <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                            </TextBox.CommandBindings>
+                        </TextBox>
+                        <Label Content="时"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <Button x:Name="StartOrStopButton" Content="开始" HorizontalAlignment="Left" VerticalAlignment="Top" Width="394" Margin="0,219,-0.4,0" Height="26" Click="StartOrStopButton_Click"/>
+        <TextBox x:Name="LogTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,250,0,0" AcceptsReturn="True" IsReadOnly="True" Grid.Row="1" VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</Window>
